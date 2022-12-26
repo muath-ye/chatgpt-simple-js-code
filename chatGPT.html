@@ -27,7 +27,10 @@
     }
 
     function nextZikr() {
-      currentZikr = (currentZikr + 1) % zikrs.length;
+      zikrs[currentZikr].repetitions--;
+      if (zikrs[currentZikr].repetitions === 0) {
+        currentZikr = (currentZikr + 1) % zikrs.length;
+      }
       displayZikr();
     }
 
