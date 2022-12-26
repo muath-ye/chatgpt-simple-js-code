@@ -13,16 +13,16 @@
 
   <script>
     const zikrs = [
-      "La ilaha illallah",
-      "Allah u Akbar",
-      "Subhanallah"
+      { name: "La ilaha illallah", repetitions: 3 },
+      { name: "Allah u Akbar", repetitions: 5 },
+      { name: "Subhanallah", repetitions: 2 }
     ];
     let currentZikr = 0;
 
     const zikrContainer = document.getElementById("zikr");
 
     function displayZikr() {
-      zikrContainer.textContent = zikrs[currentZikr];
+      zikrContainer.textContent = `${zikrs[currentZikr].name} (${zikrs[currentZikr].repetitions} repetitions)`;
       zikrContainer.classList.add("zikr");
     }
 
