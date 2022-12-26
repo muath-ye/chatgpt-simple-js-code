@@ -2,7 +2,10 @@
 <html>
 <head>
   <title>Islamic Zikr</title>
-  <style>
+   <style>
+    body {
+      background: linear-gradient(to right, #ff0000, #ffff00);
+    }
     .zikr {
       cursor: pointer;
     }
@@ -15,7 +18,10 @@
     const zikrs = [
       { name: "La ilaha illallah", repetitions: 3, originalRepetitions: 3 },
       { name: "Allah u Akbar", repetitions: 5, originalRepetitions: 5 },
-      { name: "Subhanallah", repetitions: 2, originalRepetitions: 2 }
+      { name: "Subhanallah", repetitions: 2, originalRepetitions: 2 },
+      { name: "Astaghfirullah", repetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1, originalRepetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1 },
+      { name: "Alhamdulillah", repetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1, originalRepetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1 },
+      { name: "Bismillah", repetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1, originalRepetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1 }
     ];
     let currentZikr = 0;
 
