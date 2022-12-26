@@ -20,31 +20,55 @@
   <div id="zikr"></div>
 
   <script>
-    const zikrs = [
-      { name: "لا إله إلا الله", repetitions: 3, originalRepetitions: 3 },
-      { name: "الله أكبر", repetitions: 5, originalRepetitions: 5 },
-      { name: "سبحان الله", repetitions: 2, originalRepetitions: 2 },
-      { name: "استغفر الله", repetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1, originalRepetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1 },
-      { name: "الحمد لله", repetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1, originalRepetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1 },
-      { name: "بسم الله", repetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1, originalRepetitions: Math.floor(Math.random() * (10 - 1 + 1)) + 1 }
+    const morningZikrs = [
+      {
+        zikr: "أصبحت أشهد أن لا إله إلا الله وحده لا شريك له وأشهد أن محمداً عبده ورسوله", 
+        repetitions: 3,
+        originalRepetitions: 3
+      },
+      {
+        zikr: "اللهم إني أسألك العافية في الدنيا والآخرة",
+        repetitions: 3,
+        originalRepetitions: 3
+      },
+      {
+        zikr: "اللهم إني أسألك العفو والعافية في ديني ودنياي وأهلي ومالي",
+        repetitions: 3,
+        originalRepetitions: 3
+      },
+      {
+        zikr: "اللهم أعني على ذكرك وشكرك وحسن عبادتك",
+        repetitions: 3,
+        originalRepetitions: 3
+      },
+      {
+        zikr: "اللهم إني أسألك الهدى والتقى والعفاف والغنى",
+        repetitions: 3,
+        originalRepetitions: 3
+      },
+      {
+        zikr: "أستغفر الله العظيم الذي لا إله إلا هو، الحي القيوم، وأتوب إليه",
+        repetitions: 3,
+        originalRepetitions: 3
+      }
     ];
     let currentZikr = 0;
 
     const zikrContainer = document.getElementById("zikr");
 
     function displayZikr() {
-      zikrContainer.textContent = `${zikrs[currentZikr].name} (${zikrs[currentZikr].repetitions} repetitions)`;
+      zikrContainer.textContent = `${morningZikrs[currentZikr].zikr} (${morningZikrs[currentZikr].repetitions} repetitions)`;
       zikrContainer.classList.add("zikr");
     }
 
     function nextZikr() {
-      if (zikrs[currentZikr].repetitions > 0) {
-        zikrs[currentZikr].repetitions--;
+      if (morningZikrs[currentZikr].repetitions > 0) {
+        morningZikrs[currentZikr].repetitions--;
       } else {
-        zikrs[currentZikr].repetitions = zikrs[currentZikr].originalRepetitions;
+        morningZikrs[currentZikr].repetitions = morningZikrs[currentZikr].originalRepetitions;
       }
-      if (zikrs[currentZikr].repetitions === 0) {
-        currentZikr = (currentZikr + 1) % zikrs.length;
+      if (morningZikrs[currentZikr].repetitions === 0) {
+        currentZikr = (currentZikr + 1) % morningZikrs.length;
       }
       displayZikr();
     }
