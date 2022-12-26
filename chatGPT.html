@@ -1,40 +1,38 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <script>
-      // An array of Islamic zikr
-      var zikr = [
-        "Allah Hu Akbar",
-        "Subhan Allah",
-        "Alhamdulillah",
-        "La ilaha illa Allah",
-        "Astaghfirullah"
-      ];
+<head>
+  <title>Islamic Zikr</title>
+  <style>
+    .zikr {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="zikr"></div>
 
-      // A counter to keep track of the current zikr
-      var counter = 0;
+  <script>
+    const zikrs = [
+      "La ilaha illallah",
+      "Allah u Akbar",
+      "Subhanallah"
+    ];
+    let currentZikr = 0;
 
-      // Get the element that will display the zikr
-      var display = document.getElementById("display");
+    const zikrContainer = document.getElementById("zikr");
 
-      // Set the initial zikr to the first item in the array
-      display.textContent = zikr[counter];
+    function displayZikr() {
+      zikrContainer.textContent = zikrs[currentZikr];
+      zikrContainer.classList.add("zikr");
+    }
 
-      // Add a click event listener to the display element
-      display.addEventListener("click", function() {
-        // Increment the counter
-        counter++;
+    function nextZikr() {
+      currentZikr = (currentZikr + 1) % zikrs.length;
+      displayZikr();
+    }
 
-        // If the counter is greater than the length of the array, reset it to 0
-        if (counter >= zikr.length) {
-          counter = 0;
-        }
-
-        // Update the displayed zikr
-        display.textContent = zikr[counter];
-      });
-    </script>
-
-    <!-- An element to display the zikr -->
-    <div id="display">Click to display the next zikr</div>
-  </body>
+    displayZikr();
+    zikrContainer.addEventListener("click", nextZikr);
+  </script>
+</body>
 </html>
