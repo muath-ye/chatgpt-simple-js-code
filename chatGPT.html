@@ -1,12 +1,27 @@
 <html>
   <body>
     <script>
+      // An array of Islamic zikr
+      var zikr = [
+        "Allah Hu Akbar",
+        "Subhan Allah",
+        "Alhamdulillah",
+        "La ilaha illa Allah",
+        "Astaghfirullah"
+      ];
+
+      // Generate a random index
+      var index = Math.floor(Math.random() * zikr.length);
+
+      // Get the zikr at the random index
+      var chosenZikr = zikr[index];
+
       // Create a new paragraph element
       var p = document.createElement("p");
-      
-      // Set the text content of the paragraph
-      p.textContent = "This is a dynamically added paragraph.";
-      
+
+      // Set the text content of the paragraph to the chosen zikr
+      p.textContent = chosenZikr;
+
       // Add the paragraph to the body of the HTML document
       document.body.appendChild(p);
     </script>
