@@ -10,20 +10,31 @@
         "Astaghfirullah"
       ];
 
-      // Generate a random index
-      var index = Math.floor(Math.random() * zikr.length);
+      // A counter to keep track of the current zikr
+      var counter = 0;
 
-      // Get the zikr at the random index
-      var chosenZikr = zikr[index];
+      // Get the element that will display the zikr
+      var display = document.getElementById("display");
 
-      // Create a new paragraph element
-      var p = document.createElement("p");
+      // Set the initial zikr to the first item in the array
+      display.textContent = zikr[counter];
 
-      // Set the text content of the paragraph to the chosen zikr
-      p.textContent = chosenZikr;
+      // Add a click event listener to the display element
+      display.addEventListener("click", function() {
+        // Increment the counter
+        counter++;
 
-      // Add the paragraph to the body of the HTML document
-      document.body.appendChild(p);
+        // If the counter is greater than the length of the array, reset it to 0
+        if (counter >= zikr.length) {
+          counter = 0;
+        }
+
+        // Update the displayed zikr
+        display.textContent = zikr[counter];
+      });
     </script>
+
+    <!-- An element to display the zikr -->
+    <div id="display">Click to display the next zikr</div>
   </body>
 </html>
